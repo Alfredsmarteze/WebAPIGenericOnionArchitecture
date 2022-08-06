@@ -11,12 +11,10 @@ namespace WebAPIGeneric.Controllers
     public class StudentController : ControllerBase
     {
         private readonly ICustomService<Student> _customService;
-        private readonly ApplicationDbContext _applicationDbContext;
 
-        public StudentController(ICustomService<Student> customService, ApplicationDbContext applicationDbContext)
+        public StudentController(ICustomService<Student> customService)
         {
             _customService = customService;
-            _applicationDbContext = applicationDbContext;
         }
         [HttpGet(nameof(GetStudentById))]
         public IActionResult GetStudentById(int id)
